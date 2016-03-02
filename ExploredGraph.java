@@ -34,7 +34,7 @@ import java.util.function.Function;
 public class ExploredGraph {
     Set<Vertex> Ve; // collection of explored vertices
     Set<Edge> Ee;   // collection of explored edges
-    
+    ArrayList<Operator> op;
     public ExploredGraph() {
         Ve = new LinkedHashSet<Vertex>();
         Ee = new LinkedHashSet<Edge>();
@@ -46,7 +46,14 @@ public class ExploredGraph {
     }
     
     public void initialize(v) {
-        Ve.add(v);
+        opList = new ArrayList<Operator>(); 
+        ///---------------Note EC by making the variable 4--------
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) { 
+				if (i != j) {
+					Operator op = new Operator(i, j);
+					opList.add(op);
+				}
     }
     
     public int nvertices() {
@@ -77,25 +84,30 @@ public class ExploredGraph {
     }   
     
     public void bfs(Vertex vi, Vertex vj) {
-        
-        if(vi.equals(vj){}
-        //queue
-        Queue q = new LinkedList();
-        //adds starting vertex to the queue
-        q.add(vi);
-        
-        while(!q.isEmpty()){
-            //looks at the front of the que, if its the end stops
-            while(q.peek() != vj){
-                //adds the explored vertices to the set of vertices
-                Ve.add(q.pop());
-                ---do i need to add edges? or how does that work
-                //need to use the operator to go to the next level of all items in the queue(where all items in the que should be at the same level)
-                q.add(available paths)
-            }
+		Queue<Vertex> q = new LinkedList<Vertex>(); 
+		//Vertex v0 = this.new Vertex("[[4,3,2,1],[],[]]"); 
+		
+		q.add(vi);
+		while(vi!=vj){
+		    while (!q.isEmpty()) { 
+			    Vertex mVertex = q.iterator().next();
+	    		Ve.add(mVertex);
+		    	q.remove(mVertex); // IF BUG don't remove mVertex, remove the iter.next
+			    for (int i = 0; i < opList.size(); i++) {
+				    Operator mOperator = opList.get(i);
+	    			if (mOperator.getPrecondition()) {
+		    			Vertex result = mOperator.getTransition();
+			    		if (!Ve.contains(result)) { 
+				    		q.add(result);
+					    	Ee.add(new Edge(result, mVertex));
+						    Ee.add(new Edge(mVertex, result));
+	    				}
+		    		}
+			    }
+		    }
+		
         }
     }
-    
     
     
     public ArrayList<Vertex> retrievePath(Vertex vi) {return null;} // Implement this.
