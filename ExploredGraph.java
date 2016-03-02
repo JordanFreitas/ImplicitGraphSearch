@@ -84,27 +84,26 @@ public class ExploredGraph {
     }   
     
     public void bfs(Vertex vi, Vertex vj) {
-		Queue<Vertex> q = new LinkedList<Vertex>(); 
-		//Vertex v0 = this.new Vertex("[[4,3,2,1],[],[]]"); 
-		
-		q.add(vi);
-		while(vi!=vj){
-		    while (!q.isEmpty()) { 
-			    Vertex mVertex = q.iterator().next();
-	    		Ve.add(mVertex);
-		    	q.remove(mVertex); // IF BUG don't remove mVertex, remove the iter.next
-			    for (int i = 0; i < opList.size(); i++) {
-				    Operator mOperator = opList.get(i);
-	    			if (mOperator.getPrecondition()) {
-		    			Vertex result = mOperator.getTransition();
-			    		if (!Ve.contains(result)) { 
-				    		q.add(result);
-					    	Ee.add(new Edge(result, mVertex));
-						    Ee.add(new Edge(mVertex, result));
-	    				}
-		    		}
-			    }
-		    }
+	Queue<Vertex> q = new LinkedList<Vertex>(); 
+	//Vertex v0 = this.new Vertex("[[4,3,2,1],[],[]]"); 
+	q.add(vi);
+	while(vi!=vj){
+	    while (!q.isEmpty()) { 
+		Vertex mVertex = q.iterator().next();
+		Ve.add(mVertex);
+	    	q.remove(mVertex); // IF BUG don't remove mVertex, remove the iter.next
+		for (int i = 0; i < opList.size(); i++) {
+			Operator mOperator = opList.get(i);
+			if (mOperator.getPrecondition()) {
+	   			Vertex result = mOperator.getTransition();
+		    		if (!Ve.contains(result)) { 
+			    		q.add(result);
+				    	Ee.add(new Edge(result, mVertex));
+					Ee.add(new Edge(mVertex, result));
+				}
+	    		}
+		}
+	    }
 		
         }
     }
