@@ -77,13 +77,25 @@ public class ExploredGraph {
     }   
     
     public void bfs(Vertex vi, Vertex vj) {
+        
+        if(vi.equals(vj){}
         //queue
-        Vertex start = vi;
-        while(!vi.equals(vj)) {
-           Operator temp = new
-            
+        Queue q = new LinkedList();
+        //adds starting vertex to the queue
+        q.add(vi);
+        
+        while(!q.isEmpty()){
+            //looks at the front of the que, if its the end stops
+            while(q.peek() != vj){
+                //adds the explored vertices to the set of vertices
+                Ve.add(q.pop());
+                ---do i need to add edges? or how does that work
+                //need to use the operator to go to the next level of all items in the queue(where all items in the que should be at the same level)
+                q.add(available paths)
+            }
         }
     }
+    
     
     
     public ArrayList<Vertex> retrievePath(Vertex vi) {return null;} // Implement this.
