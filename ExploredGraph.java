@@ -1,3 +1,4 @@
+git
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import java.util.function.Function;
  */
 
 /**
- * @author your name(s) here.
+ * @author Anna Murray, UW NetID 1438929 and Jordan Freitas, 
  * Extra Credit Options Implemented, if any:  (mention them here.)
  * 
  * Solution to Assignment 6 in CSE 373, Winter 2016
@@ -102,9 +103,27 @@ public class ExploredGraph {
 	}
 	
 	class Edge {
+		public Vertex vi;
+		public Vertex vj;
+		
 		public Edge(Vertex vi, Vertex vj) {
-			// Add whatever you need to here.
+			this.vi = vi;
+			this.vj = vj;
 		}
+		
+		public Vertex getEndpoint1() {
+			return this.vi;
+		}
+		
+		public Vertex getEndpoint2() {
+			return this.vj;
+		}
+		
+		public String toString() {
+			return "Edge from " + vi.toString() + " to " + vj.toString();
+		}
+		
+		
 	}
 	
 	class Operator {
