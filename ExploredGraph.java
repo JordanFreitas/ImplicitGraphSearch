@@ -14,18 +14,10 @@ import java.util.function.Function;
 
 /**
  * @author Anna Murray, UW NetID 1438929 and Jordan Freitas, UW NetID 1460037 
- * Extra Credit Options Implemented, if any:  (mention them here.)
- * 
- * Solution to Assignment 6 in CSE 373, Winter 2016
  * University of Washington.
  * 
  * Starter code v1.1b. By Steve Tanimoto, with modifications
  * by Kuikui Liu and S.J. Liu.
- *
- * The main differences between this version (1.1a) and version 1.1 are:
- *  1. The use of ArrayList rather than array for the pegs variable in class Vertex.
- *  2. Type information provided for both Function prototypes in class Operator.
- *
  * This code requires Java version 8 or higher.
  *
  */
